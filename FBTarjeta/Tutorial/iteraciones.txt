@@ -1,0 +1,146 @@
+﻿
+https://www.udemy.com/course/aprende-haciendo-crea-tu-api-en-net-core-y-tu-app-en-ionic-4/learn/lecture/14567318#overview
+https://gitlab.com/tom07/noticiasapi/
+https://docs.microsoft.com/es-es/ef/core/querying/raw-sql
+
+dotnet add package System.Data.SqlClient
+
+
+
+CREATE DATABASE Noticias
+GO
+USE Noticias
+GO
+
+create table Nombres(
+    NombreID int primary key identity(1,1),
+    Nombre varchar(120),
+	edad int
+);
+
+Create Table Noticia(
+	NoticiaID int primary key identity(1,1),
+	Titulo varchar(120),
+	Descripcion varchar(200),
+	Contenido varchar(max),
+	Fecha Datetime,
+	AutorID int
+)
+GO
+Create Table Autor(
+	AutorID int primary key identity(1,1),
+	Nombre Varchar(100),
+	Apellido Varchar(100)
+)
+go
+insert into 
+dbo.Autor(Nombre,Apellido)
+values
+('Luis','Correa')
+
+insert into 
+dbo.Noticia(Titulo,Descripcion,Contenido,Fecha,AutorID)
+values
+('Curso ionic 1','Descrripción','información de contenido',getdate(),1)
+
+insert into 
+dbo.Noticia(Titulo,Descripcion,Contenido,Fecha,AutorID)
+values
+('Curso ionic 2','Descrripción','información de contenido',getdate(),1)
+
+insert into 
+dbo.Noticia(Titulo,Descripcion,Contenido,Fecha,AutorID)
+values
+('Curso ionic 3','Descrripción','información de contenido',getdate(),1)
+
+go
+
+create procedure spSinValoresDesdeProcedimiento
+@Edad int,
+@Nombre varchar(100)
+as
+begin
+update Nombres set edad = @edad where nombre like '%' +@Nombre+ '%';
+end
+
+go
+
+create procedure spValoresDesdeProcedimiento
+@edad int,
+@nombre varchar(100)
+as
+begin
+select NombreID, Nombre from Nombres where edad = @edad 
+and  Nombre like '%' +@nombre+'%';
+end
+
+
+https://codepen.io/arsinak/pen/eFDGw/
+
+Install-Package Microsoft.EntityFrameworkCore
+Install-Package Microsoft.EntityFrameworkCore.SqlServer
+Install-Package Microsoft.EntityFrameworkCore.Tools -Version 3.1.6
+
+PM> add-migration v.1.0.0
+
+update-database
+
+
+
+
+
+https://www.connectionstrings.com/sqlconnection/
+
+extensión de chrome jsonview
+
+-----------------------
+ionic
+-------------------
+npm install -g ionic
+ionic start myApp tabs
+ionic start noticisApp sidemenu
+
+ionic serve
+
+ionic generate page listadonoticias
+
+ionic generate page home
+
+ionic g service noticias
+
+ionic g page noticiaDetalle
+
+ionic g page agregar
+
+https://ionicframework.com/docs/angular/navigation
+
+https://angular.io/api/forms/NgModel
+
+https://ionicframework.com/docs/api/loading
+
+https://ionicframework.com/docs/api/toast
+
+
+https://ionicframework.com/docs/cli/commands/build
+
+ionic build
+ionic build --prod --engine=cordova --platform=android
+ionic build --watch
+
+https://www.nigmacode.com/ionic/Exportar-y-firmar-APK-en-Ionic
+ionic cordova build --release android
+
+genera la apk en la siguiente ruta
+C:\Users\Bus209\Documents\htdocs\NoticiasApi\NoticiasApi\noticiasApp\platforms\android\app\build\outputs\apk\release\app-release-unsigned.apk
+
+si falla
+https://stackoverflow.com/questions/43480076/ionic-2-error-could-not-find-an-installed-version-of-gradle-either-in-android
+https://www.allku.expert/instalar-gradle/
+
+
+### conectar con mongodb
+https://docs.microsoft.com/en-us/aspnet/core/tutorials/first-mongo-app?view=aspnetcore-6.0&tabs=visual-studio
+
+https://docs.microsoft.com/es-es/aspnet/core/tutorials/first-mongo-app?view=aspnetcore-6.0&tabs=visual-studio-code
+
+https://github.com/dotnet/AspNetCore.Docs/tree/main/aspnetcore/tutorials/first-mongo-app/samples

@@ -1,0 +1,8 @@
+.square{
+    color:white !important;
+    background-color: chocolate;
+    text-align: center;
+    font-size: 15pt;
+    font-weight: bold;
+    border: #fff solid 1px;
+}
