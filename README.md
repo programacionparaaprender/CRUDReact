@@ -1,5 +1,5 @@
 FBTarjetas
-dotnet new angular -o FBTarjeta -f netcoreapp3.1
+dotnet new reactredux -o FBTarjeta -f netcoreapp3.1
 
 dotnet new sln
 dotnet sln add .\FBTarjeta\FBTarjeta.csproj
